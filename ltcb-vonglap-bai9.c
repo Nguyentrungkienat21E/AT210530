@@ -1,36 +1,27 @@
-#include <stdio.h>
+#include<stdio.h>
 
-// tinh giai thua
-long long giaiThua(int n) {
-    long long tich = 1;
-    for (int i = 2; i <= n; i++) {
-        tich *= i;
-    }
-    return tich;
+int tich(int n){
+    int i;
+    long long t = 1;
+	for(i = 1;i <= n;i++){
+	t *= i;
+	}
+	return t;
+
 }
 
-// tinh tong
-double tongDay(int n) {
-    double tong = 1.0; 
-    for (int i = 2; i <= n; i++) {
-        tong += 1.0 / giaiThua(i);
-    }
-    return tong;
+int main(){
+	int i,n;
+	double s = 1.0;
+	
+	printf("Nhap so nguyen duong n:");
+	scanf("%d",&n);
+	
+	for(i = 2;i <= n;i++){
+		s += 1.0 / tich(i);
+	}
+	printf("S = %lf",s);
+	
+	return 0;
+	
 }
-
-int main() {
-    int n;
-    printf("Nhap gia tri cua  n: ");
-    scanf("%d", &n);
-
-    if (n < 0) {
-        printf("Vui long nhap n >= 0\n");
-        return 1;
-    }
-
-    double kqua = tongDay(n);
-    printf("S = %.2f", kqua);
-
-    return 0;
-}
-
